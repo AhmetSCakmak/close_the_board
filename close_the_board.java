@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
-class yahtzee
+class close_the_board
 {
 	private static int width = 700;
 	private static int height = 400;
