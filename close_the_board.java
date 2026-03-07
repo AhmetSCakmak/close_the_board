@@ -28,7 +28,7 @@ class yahtzee
 	private static JLabel labelThree;
 	private static JLabel labelFour;
 	private static JLabel labelFive;
-	private static JLabel labelSixe;
+	private static JLabel labelSix;
 	private static JLabel labelSeven;
 	private static JLabel labelEight;
 	private static JLabel labelNine;
@@ -36,6 +36,7 @@ class yahtzee
 	private static JLabel labelEleven;
 	private static JLabel labelTwelwe;
 	private static JLabel empty;
+  private static JLabel gameScore;
 	private static JDialog popUpDialog;
 	private static int score;
 	private static JFrame f;
@@ -43,12 +44,11 @@ class yahtzee
 	
 	public static void main(String[] args)
 	{
-    closedThisTurn = new boolean[12]
+    closedThisTurn = new boolean[12];
 		for (int i = 0; i < 12; i++)
 		{
       closedThisTurn[i] = false;
 		}
-		turn = 0;
 		f = new JFrame();
 		f.setPreferredSize(new Dimension(width, height));
 		f.setMinimumSize(new Dimension(width, height));
@@ -550,55 +550,66 @@ class yahtzee
 	
 	private static void gameOver()
 	{
-		int score = 0;
+		int scoreLeft = 0;
 		if(labelOne.getText() == "Open"){
-      score += 1;
+      scoreLeft += 1;
     }
     if(labelTwo.getText() == "Open"){
-      score += 2;
+      scoreLeft += 2;
     }
     if(labelThree.getText() == "Open"){
-      score += 3;
+      scoreLeft += 3;
     }
     if(labelFour.getText() == "Open"){
-      score += 4;
+      scoreLeft += 4;
     }
     if(labelFive.getText() == "Open"){
-      score += 5;
+      scoreLeft += 5;
     }
     if(labelSix.getText() == "Open"){
-      score += 6;
+      scoreLeft += 6;
     }
     if(labelSeven.getText() == "Open"){
-      score += 7;
+      scoreLeft += 7;
     }
     if(labelEight.getText() == "Open"){
-      score += 8;
+      scoreLeft += 8;
     }
     if(labelNine.getText() == "Open"){
-      score += 9;
+      scoreLeft += 9;
     }
     if(labelTen.getText() == "Open"){
-      score += 10;
+      scoreLeft += 10;
     }
     if(labelEleven.getText() == "Open"){
-      score += 11;
+      scoreLeft += 11;
     }
     if(labelTwelwe.getText() == "Open"){
-      score += 12;
+      scoreLeft += 12;
     }
 		JPanel popUpPanel = new JPanel();
-		gameScore = new JLabel(Integer.toString(score));
+		gameScore = new JLabel(Integer.toString(scoreLeft));
 		Font currentFont = gameScore.getFont();
 		Font newFont = currentFont.deriveFont(50f);
 		gameScore.setFont(newFont);
-        popUpPanel.add(gameScore);
-        popUpPanel.setBackground(Color.LIGHT_GRAY);
-        popUpDialog = new JDialog(f, "Open board score is: ", true);
-        popUpDialog.add(popUpPanel);
-        popUpDialog.setSize(250, 150);
-        popUpDialog.setLocationRelativeTo(f);
-        popUpDialog.setVisible(true);
+    if(scoreLeft == 0){
+      gameScore = new JLabel("You Win!");
+      popUpPanel.add(gameScore);
+      popUpPanel.setBackground(Color.LIGHT_GRAY);
+      popUpDialog = new JDialog(f, "Winner ", true);
+      popUpDialog.add(popUpPanel);
+      popUpDialog.setSize(250, 150);
+      popUpDialog.setLocationRelativeTo(f);
+      popUpDialog.setVisible(true);
+    }else{
+      popUpPanel.add(gameScore);
+      popUpPanel.setBackground(Color.LIGHT_GRAY);
+      popUpDialog = new JDialog(f, "Open board score is: ", true);
+      popUpDialog.add(popUpPanel);
+      popUpDialog.setSize(250, 150);
+      popUpDialog.setLocationRelativeTo(f);
+      popUpDialog.setVisible(true);
+    }
 	}
 	
 	private static void resetGame()
@@ -608,7 +619,7 @@ class yahtzee
 		labelThree.setText("Open");
 		labelFour.setText("Open");
 		labelFive.setText("Open");
-		labelSixe.setText("Open");
+		labelSix.setText("Open");
 		labelSeven.setText("Open");
 		labelEight.setText("Open");
 		labelNine.setText("Open");
@@ -617,8 +628,6 @@ class yahtzee
 		labelTwelwe.setText("Open");
 		labelDice1.setText("Open");
 		labelDice2.setText("Open");
-		rollNumber = 0;
-		turn = 0;
 		
 		one.setEnabled(false);	
 		two.setEnabled(false);	
@@ -634,10 +643,12 @@ class yahtzee
 		twelwe.setEnabled(false);
 		roll.setEnabled(true);
 		popUpDialog.setVisible(false);
+    score = 0;
+    empty.setText(Integer.toString(score));    
 		
 		for (int i = 0; i < 13; i++)
 		{
-			keys[i] = true;
+			closedThisTurn[i] = false;
 		}
 	}
 	
@@ -693,6 +704,7 @@ class yahtzee
         }else{
           closeOne();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("2") )
       {
@@ -701,6 +713,7 @@ class yahtzee
         }else{
           closeTwo();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("3") )
       {
@@ -709,6 +722,7 @@ class yahtzee
         }else{
           closeThree();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("4") )
       {
@@ -717,6 +731,7 @@ class yahtzee
         }else{
           closeFour();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("5") )
       {
@@ -725,6 +740,7 @@ class yahtzee
         }else{
           closeFive();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("6") )
       {
@@ -733,6 +749,7 @@ class yahtzee
         }else{
           closeSix();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("7") )
       {
@@ -741,6 +758,7 @@ class yahtzee
         }else{
           closeSeven();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("8") )
       {
@@ -749,6 +767,7 @@ class yahtzee
         }else{
           closeEight();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("9") )
       {
@@ -757,6 +776,7 @@ class yahtzee
         }else{
           closeNine();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("10") )
       {
@@ -765,6 +785,7 @@ class yahtzee
         }else{
           closeTen();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("11") )
       {
@@ -773,6 +794,7 @@ class yahtzee
         }else{
           closeEleven();
         }
+        empty.setText(Integer.toString(score));
       }
       if( b.getText().toLowerCase().equals("12") )
       {
@@ -781,6 +803,7 @@ class yahtzee
         }else{
           closeTwelwe();
         }
+        empty.setText(Integer.toString(score));
       }
 			if( b.getText().toLowerCase().equals("play") )
 			{
@@ -803,6 +826,8 @@ class yahtzee
           int dice2 = diceRoll();
           labelDice1.setText(Integer.toString(dice1));
           labelDice2.setText(Integer.toString(dice2));
+          score = dice1 + dice2;
+          empty.setText(Integer.toString(score));
         }
 			}
 		}
