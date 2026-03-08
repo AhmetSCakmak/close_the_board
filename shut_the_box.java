@@ -5,7 +5,7 @@ import java.io.*;
 import java.math.*;
 import javax.swing.ImageIcon;
 
-class close_the_box
+class shut_the_box
 {
 	private static int width = 900;
 	private static int height = 800;
