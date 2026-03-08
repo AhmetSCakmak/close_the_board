@@ -3,11 +3,12 @@ import java.awt.*;
 import java.util.*;
 import java.io.*;
 import java.math.*;
+import javax.swing.ImageIcon;
 
-class close_the_board
+class close_the_box
 {
-	private static int width = 700;
-	private static int height = 400;
+	private static int width = 900;
+	private static int height = 800;
 	private static JButton roll;
 	private static JButton one;
 	private static JButton two;
@@ -20,7 +21,7 @@ class close_the_board
 	private static JButton nine;
 	private static JButton ten;
 	private static JButton eleven;
-	private static JButton twelwe;
+	private static JButton twelve;
 	private static JLabel labelDice1;
 	private static JLabel labelDice2;
 	private static JLabel labelOne;
@@ -34,16 +35,43 @@ class close_the_board
 	private static JLabel labelNine;
 	private static JLabel labelTen;
 	private static JLabel labelEleven;
-	private static JLabel labelTwelwe;
+	private static JLabel labelTwelve;
 	private static JLabel empty;
   private static JLabel gameScore;
 	private static JDialog popUpDialog;
 	private static int score;
 	private static JFrame f;
   private static boolean[] closedThisTurn;
+  private static ImageIcon pngZero;
+  private static ImageIcon pngOne;
+  private static ImageIcon pngTwo;
+  private static ImageIcon pngThree;
+  private static ImageIcon pngFour;
+  private static ImageIcon pngFive;
+  private static ImageIcon pngSix;
+  private static ImageIcon pngSeven;
+  private static ImageIcon pngEight;
+  private static ImageIcon pngNine;
+  private static ImageIcon pngTen;
+  private static ImageIcon pngEleven;
+  private static ImageIcon pngTwelve;
 	
 	public static void main(String[] args)
 	{
+    pngZero = new ImageIcon("images/0.png");
+    pngOne = new ImageIcon("images/1.png");
+    pngTwo = new ImageIcon("images/2.png");
+    pngThree = new ImageIcon("images/3.png");
+    pngFour = new ImageIcon("images/4.png");
+    pngFive = new ImageIcon("images/5.png");
+    pngSix = new ImageIcon("images/6.png");
+    pngSeven = new ImageIcon("images/7.png");
+    pngEight = new ImageIcon("images/8.png");
+    pngNine = new ImageIcon("images/9.png");
+    pngTen = new ImageIcon("images/10.png");
+    pngEleven = new ImageIcon("images/11.png");
+    pngTwelve = new ImageIcon("images/12.png");
+
     closedThisTurn = new boolean[12];
 		for (int i = 0; i < 12; i++)
 		{
@@ -74,16 +102,16 @@ class close_the_board
 		GridBagLayout gridBagLayoutLeft = new GridBagLayout();
 		GridBagConstraints buttonPanelConstraintsLeft = new GridBagConstraints();
 		leftButtonPanel.setLayout(gridBagLayoutLeft);
-		leftButtonPanel.setPreferredSize(new Dimension(330, 300));
-		leftButtonPanel.setMinimumSize(new Dimension(330, 300));
+		leftButtonPanel.setPreferredSize(new Dimension(430, 600));
+		leftButtonPanel.setMinimumSize(new Dimension(430, 600));
 		
 		JPanel rightButtonPanel = new JPanel();
 		rightButtonPanel.setBorder(new javax.swing.border.LineBorder(new Color(0, 0, 0, 255), 2));
 		GridBagLayout gridBagLayoutRight = new GridBagLayout();
 		GridBagConstraints buttonPanelConstraintsRight = new GridBagConstraints();
 		rightButtonPanel.setLayout(gridBagLayoutRight);
-		rightButtonPanel.setPreferredSize(new Dimension(330, 300));
-		rightButtonPanel.setMinimumSize(new Dimension(330, 300));
+		rightButtonPanel.setPreferredSize(new Dimension(430, 600));
+		rightButtonPanel.setMinimumSize(new Dimension(430, 600));
 		
 		buttonPanelConstraintsLeft.fill = GridBagConstraints.NONE;
 		buttonPanelConstraintsLeft.anchor = GridBagConstraints.LINE_START;
@@ -108,10 +136,9 @@ class close_the_board
 		GridBagLayout gridBagLayoutDice = new GridBagLayout();
 		GridBagConstraints panelConstraintsDice = new GridBagConstraints();
 		dicePanel.setLayout(gridBagLayoutDice);
-		dicePanel.setPreferredSize(new Dimension(680, 100));
-		dicePanel.setMinimumSize(new Dimension(680, 100));
+		dicePanel.setPreferredSize(new Dimension(880, 200));
+		dicePanel.setMinimumSize(new Dimension(880, 200));
 		panelConstraintsDice.fill = GridBagConstraints.NONE;
-		panelConstraintsDice.anchor = GridBagConstraints.LINE_START;
 		panelConstraintsDice.weightx = 1;
 		panelConstraintsDice.weighty = 1;
 		
@@ -122,19 +149,19 @@ class close_the_board
 		mainPanel.add(mainButtonPanel, BorderLayout.CENTER);
 		mainPanel.add(dicePanel, BorderLayout.SOUTH);
 		
-		one = new JButton("1");
-		two = new JButton("2");
-		three = new JButton("3");
-		four = new JButton("4");
-		five = new JButton("5");
-		six = new JButton("6");
-		seven = new JButton("7");
-    eight = new JButton("8");
-    nine = new JButton("9");
-    ten = new JButton("10");
-    eleven = new JButton("11");
-    twelwe = new JButton("12");
-		
+		one = new JButton("One", pngOne);
+		two = new JButton("Two", pngTwo);
+		three = new JButton("Three", pngThree);
+		four = new JButton("Four", pngFour);
+		five = new JButton("Five", pngFive);
+		six = new JButton("Six", pngSix);
+		seven = new JButton("Seven", pngSeven);
+    eight = new JButton("Eight", pngEight);
+    nine = new JButton("Nine", pngNine);
+    ten = new JButton("Ten", pngTen);
+    eleven = new JButton("Eleven", pngEleven);
+    twelve = new JButton("Twelve", pngTwelve);
+
 		ButtonActionListener oneAL = new ButtonActionListener(one);
 		ButtonActionListener twoAL = new ButtonActionListener(two);
 		ButtonActionListener threeAL = new ButtonActionListener(three);
@@ -146,7 +173,7 @@ class close_the_board
 		ButtonActionListener nineAL = new ButtonActionListener(nine);
 		ButtonActionListener tenAL = new ButtonActionListener(ten);
 		ButtonActionListener elevenAL = new ButtonActionListener(eleven);
-		ButtonActionListener twelweAL = new ButtonActionListener(twelwe);
+		ButtonActionListener twelveAL = new ButtonActionListener(twelve);
 		
 		one.addActionListener(oneAL);
 		two.addActionListener(twoAL);
@@ -159,7 +186,7 @@ class close_the_board
 		nine.addActionListener(nineAL);
 		ten.addActionListener(tenAL);
 		eleven.addActionListener(elevenAL);
-		twelwe.addActionListener(twelweAL);
+		twelve.addActionListener(twelveAL);
 
 		one.setEnabled(false);	
 		two.setEnabled(false);	
@@ -172,7 +199,7 @@ class close_the_board
 		nine.setEnabled(false);	
 		ten.setEnabled(false);	
 		eleven.setEnabled(false);	
-		twelwe.setEnabled(false);	
+		twelve.setEnabled(false);	
 		
 		labelOne = new JLabel("Open");
 		labelTwo = new JLabel("Open");
@@ -185,8 +212,7 @@ class close_the_board
 		labelNine = new JLabel("Open");
 		labelTen = new JLabel("Open");
 		labelEleven = new JLabel("Open");
-		labelTwelwe = new JLabel("Open");
-		empty = new JLabel(Integer.toString(score));
+		labelTwelve = new JLabel("Open");
 		
 		buttonPanelConstraintsLeft.gridx = 0;
 		buttonPanelConstraintsLeft.gridy = 0;
@@ -248,11 +274,6 @@ class close_the_board
 		buttonPanelConstraintsLeft.gridwidth = GridBagConstraints.REMAINDER;
 		gridBagLayoutLeft.setConstraints(labelSix, buttonPanelConstraintsLeft);
 		
-		buttonPanelConstraintsLeft.gridx = 0;
-		buttonPanelConstraintsLeft.gridy = 6;
-		buttonPanelConstraintsLeft.gridwidth = 1;
-		gridBagLayoutLeft.setConstraints(empty, buttonPanelConstraintsLeft);
-		
 		leftButtonPanel.add(one);
 		leftButtonPanel.add(labelOne);
 		leftButtonPanel.add(two);
@@ -265,7 +286,6 @@ class close_the_board
 		leftButtonPanel.add(labelFive);
 		leftButtonPanel.add(six);
 		leftButtonPanel.add(labelSix);
-		leftButtonPanel.add(empty);
 		
 		buttonPanelConstraintsRight.gridx = 0;
 		buttonPanelConstraintsRight.gridy = 0;
@@ -320,12 +340,12 @@ class close_the_board
 		buttonPanelConstraintsRight.gridx = 0;
 		buttonPanelConstraintsRight.gridy = 5;
 		buttonPanelConstraintsRight.gridwidth = 1;
-		gridBagLayoutRight.setConstraints(twelwe, buttonPanelConstraintsRight);
+		gridBagLayoutRight.setConstraints(twelve, buttonPanelConstraintsRight);
 		
 		buttonPanelConstraintsRight.gridx = 1;
 		buttonPanelConstraintsRight.gridy = 5;
 		buttonPanelConstraintsRight.gridwidth = GridBagConstraints.REMAINDER;
-		gridBagLayoutRight.setConstraints(labelTwelwe, buttonPanelConstraintsRight);
+		gridBagLayoutRight.setConstraints(labelTwelve, buttonPanelConstraintsRight);
 		
 		rightButtonPanel.add(seven);
 		rightButtonPanel.add(labelSeven);
@@ -337,33 +357,41 @@ class close_the_board
 		rightButtonPanel.add(labelTen);
 		rightButtonPanel.add(eleven);
 		rightButtonPanel.add(labelEleven);
-		rightButtonPanel.add(twelwe);
-		rightButtonPanel.add(labelTwelwe);
+		rightButtonPanel.add(twelve);
+		rightButtonPanel.add(labelTwelve);
 		
 		roll = new JButton("Play");
 		ButtonActionListener rollAL = new ButtonActionListener(roll);
 		roll.addActionListener(rollAL);
 		roll.setEnabled(true);
 		
-		labelDice1 = new JLabel("0");
-		labelDice2 = new JLabel("0");
-		
-		panelConstraintsDice.gridx = 0;
-		panelConstraintsDice.gridy = 0;
-		panelConstraintsDice.gridwidth = 1;
-		gridBagLayoutDice.setConstraints(labelDice1, panelConstraintsDice);
+		labelDice1 = new JLabel();
+		labelDice2 = new JLabel();
+ 		empty = new JLabel();
 		
 		panelConstraintsDice.gridx = 1;
 		panelConstraintsDice.gridy = 0;
 		panelConstraintsDice.gridwidth = 1;
+		gridBagLayoutDice.setConstraints(empty, panelConstraintsDice);
+
+		panelConstraintsDice.gridx = 0;
+		panelConstraintsDice.gridy = 2;
+		panelConstraintsDice.gridwidth = 1;
+		gridBagLayoutDice.setConstraints(labelDice1, panelConstraintsDice);
+		
+		panelConstraintsDice.gridx = 2;
+		panelConstraintsDice.gridy = 2;
+		panelConstraintsDice.gridwidth = 1;
 		gridBagLayoutDice.setConstraints(labelDice2, panelConstraintsDice);
 		
 		panelConstraintsDice.gridx = 0;
-		panelConstraintsDice.gridy = 2;
+		panelConstraintsDice.gridy = 4;
 		panelConstraintsDice.gridwidth = GridBagConstraints.REMAINDER;
 		roll.setPreferredSize(new Dimension(600,25));
 		gridBagLayoutDice.setConstraints(roll, panelConstraintsDice);
+
 		
+    dicePanel.add(empty);
 		dicePanel.add(labelDice1);
 		dicePanel.add(labelDice2);
 		dicePanel.add(roll);
@@ -383,7 +411,7 @@ class close_the_board
   private static void closeOne(){
     if(score >= 1){
       score -= 1;
-      labelOne.setText("Closed");
+      labelOne.setText("Selected");
       closedThisTurn[0] = true;
     }
   }
@@ -391,7 +419,7 @@ class close_the_board
   private static void closeTwo(){
     if(score >= 2){
       score -= 2;
-      labelTwo.setText("Closed");
+      labelTwo.setText("Selected");
       closedThisTurn[1] = true;
     }
   }
@@ -399,7 +427,7 @@ class close_the_board
   private static void closeThree(){
     if(score >= 3){
       score -= 3;
-      labelThree.setText("Closed");
+      labelThree.setText("Selected");
       closedThisTurn[2] = true;
     }
   }
@@ -407,7 +435,7 @@ class close_the_board
   private static void closeFour(){
     if(score >= 4){
       score -= 4 ;
-      labelFour.setText("Closed");
+      labelFour.setText("Selected");
       closedThisTurn[3] = true;
     }
   }
@@ -415,7 +443,7 @@ class close_the_board
   private static void closeFive(){
     if(score >= 5){
       score -= 5 ;
-      labelFive.setText("Closed");
+      labelFive.setText("Selected");
       closedThisTurn[4] = true;
     }
   }
@@ -423,7 +451,7 @@ class close_the_board
   private static void closeSix(){
     if(score >= 6){
       score -= 6;
-      labelSix.setText("Closed");
+      labelSix.setText("Selected");
       closedThisTurn[5] = true;
     }
   }
@@ -431,7 +459,7 @@ class close_the_board
   private static void closeSeven(){
     if(score >= 7){
       score -= 7;
-      labelSeven.setText("Closed");
+      labelSeven.setText("Selected");
       closedThisTurn[6] = true;
     }
   }
@@ -439,7 +467,7 @@ class close_the_board
   private static void closeEight(){
     if(score >= 8){
       score -= 8;
-      labelEight.setText("Closed");
+      labelEight.setText("Selected");
       closedThisTurn[7] = true;
     }
   }
@@ -447,7 +475,7 @@ class close_the_board
   private static void closeNine(){
     if(score >= 9){
       score -= 9;
-      labelNine.setText("Closed");
+      labelNine.setText("Selected");
       closedThisTurn[8] = true;
     }
   }
@@ -455,7 +483,7 @@ class close_the_board
   private static void closeTen(){
     if(score >= 10){
       score -= 10;
-      labelTen.setText("Closed");
+      labelTen.setText("Selected");
       closedThisTurn[9] = true;
     }
   }
@@ -463,15 +491,15 @@ class close_the_board
   private static void closeEleven(){
     if(score >= 11){
       score -= 11;
-      labelEleven.setText("Closed");
+      labelEleven.setText("Selected");
       closedThisTurn[10] = true;
     }
   }
 
-  private static void closeTwelwe(){
+  private static void closeTwelve(){
     if(score >= 12){
       score -= 12;
-      labelTwelwe.setText("Selected");
+      labelTwelve.setText("Selected");
       closedThisTurn[11] = true;
     }
   }
@@ -542,8 +570,8 @@ class close_the_board
     closedThisTurn[10] = false;
   }
 
-  private static void openTwelwe(){
-    labelTwelwe.setText("Open");
+  private static void openTwelve(){
+    labelTwelve.setText("Open");
     score += 12;
     closedThisTurn[11] = false;
   }
@@ -551,42 +579,55 @@ class close_the_board
 	private static void gameOver()
 	{
 		int scoreLeft = 0;
-		if(labelOne.getText() == "Open"){
+		if(labelOne.getText() != "Closed"){
       scoreLeft += 1;
     }
-    if(labelTwo.getText() == "Open"){
+    if(labelTwo.getText() != "Closed"){
       scoreLeft += 2;
     }
-    if(labelThree.getText() == "Open"){
+    if(labelThree.getText() != "Closed"){
       scoreLeft += 3;
     }
-    if(labelFour.getText() == "Open"){
+    if(labelFour.getText() != "Closed"){
       scoreLeft += 4;
     }
-    if(labelFive.getText() == "Open"){
+    if(labelFive.getText() != "Closed"){
       scoreLeft += 5;
     }
-    if(labelSix.getText() == "Open"){
+    if(labelSix.getText() != "Closed"){
       scoreLeft += 6;
     }
-    if(labelSeven.getText() == "Open"){
+    if(labelSeven.getText() != "Closed"){
       scoreLeft += 7;
     }
-    if(labelEight.getText() == "Open"){
+    if(labelEight.getText() != "Closed"){
       scoreLeft += 8;
     }
-    if(labelNine.getText() == "Open"){
+    if(labelNine.getText() != "Closed"){
       scoreLeft += 9;
     }
-    if(labelTen.getText() == "Open"){
+    if(labelTen.getText() != "Closed"){
       scoreLeft += 10;
     }
-    if(labelEleven.getText() == "Open"){
+    if(labelEleven.getText() != "Closed"){
       scoreLeft += 11;
     }
-    if(labelTwelwe.getText() == "Open"){
+    if(labelTwelve.getText() != "Closed"){
       scoreLeft += 12;
     }
+    one.setEnabled(false);	
+		two.setEnabled(false);	
+		three.setEnabled(false);	
+		four.setEnabled(false);	
+		five.setEnabled(false);	
+		six.setEnabled(false);	
+		seven.setEnabled(false);	
+		eight.setEnabled(false);	
+		nine.setEnabled(false);	
+		ten.setEnabled(false);	
+		eleven.setEnabled(false);	
+		twelve.setEnabled(false);
+		roll.setEnabled(false);
 		JPanel popUpPanel = new JPanel();
 		gameScore = new JLabel(Integer.toString(scoreLeft));
 		Font currentFont = gameScore.getFont();
@@ -625,9 +666,9 @@ class close_the_board
 		labelNine.setText("Open");
 		labelTen.setText("Open");
 		labelEleven.setText("Open");
-		labelTwelwe.setText("Open");
-		labelDice1.setText("Open");
-		labelDice2.setText("Open");
+		labelTwelve.setText("Open");
+		labelDice1.setText("0");
+		labelDice2.setText("0");
 		
 		one.setEnabled(false);	
 		two.setEnabled(false);	
@@ -640,50 +681,16 @@ class close_the_board
 		nine.setEnabled(false);	
 		ten.setEnabled(false);	
 		eleven.setEnabled(false);	
-		twelwe.setEnabled(false);
+		twelve.setEnabled(false);
 		roll.setEnabled(true);
 		popUpDialog.setVisible(false);
     score = 0;
-    empty.setText(Integer.toString(score));    
+    empty.setIcon(pngZero);    
 		
 		for (int i = 0; i < 13; i++)
 		{
 			closedThisTurn[i] = false;
 		}
-	}
-	
-	private static void selectionSort(int[] array)
-	{
-		for ( int i = 0; i < array.length - 1; i++ )
-		{
-			int minIndex = i;
-			for ( int j = i + 1; j < array.length; j++ )
-			{
-				if ( array[j] < array[minIndex] )
-				{
-					minIndex = j;
-				}
-			}
-			if ( minIndex != i)
-			{
-				int temp = array[i];
-				array[i] = array[minIndex];
-				array[minIndex] = temp;
-			}
-		}
-	}
-	
-	private static int searchArray(int[] array, int num)
-	{
-		int random_int = 0;
-		for( int i = 0; i < array.length; i++)
-		{
-			if(num == array[i])
-			{
-				random_int++;
-			}
-		}
-		return random_int;
 	}
 	
 	static class ButtonActionListener implements java.awt.event.ActionListener
@@ -697,119 +704,611 @@ class close_the_board
 		
 		public void actionPerformed(java.awt.event.ActionEvent e)
 		{
-      if( b.getText().toLowerCase().equals("1") )
+      if( b.getText().toLowerCase().equals("one") )
   	  {
         if(closedThisTurn[0]){
           openOne();
         }else{
           closeOne();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("2") )
+      if( b.getText().toLowerCase().equals("two") )
       {
         if(closedThisTurn[1]){
           openTwo();
         }else{
           closeTwo();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("3") )
+      if( b.getText().toLowerCase().equals("three") )
       {
         if(closedThisTurn[2]){
           openThree();
         }else{
           closeThree();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("4") )
+      if( b.getText().toLowerCase().equals("four") )
       {
         if(closedThisTurn[3]){
           openFour();
         }else{
           closeFour();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("5") )
+      if( b.getText().toLowerCase().equals("five") )
       {
         if(closedThisTurn[4]){
           openFive();
         }else{
           closeFive();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("6") )
+      if( b.getText().toLowerCase().equals("six") )
       {
         if(closedThisTurn[5]){
           openSix();
         }else{
           closeSix();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("7") )
+      if( b.getText().toLowerCase().equals("seven") )
       {
         if(closedThisTurn[6]){
           openSeven();
         }else{
           closeSeven();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("8") )
+      if( b.getText().toLowerCase().equals("eight") )
       {
         if(closedThisTurn[7]){
           openEight();
         }else{
           closeEight();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("9") )
+      if( b.getText().toLowerCase().equals("nine") )
       {
         if(closedThisTurn[8]){
           openNine();
         }else{
           closeNine();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("10") )
+      if( b.getText().toLowerCase().equals("ten") )
       {
         if(closedThisTurn[9]){
           openTen();
         }else{
           closeTen();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("11") )
+      if( b.getText().toLowerCase().equals("eleven") )
       {
         if(closedThisTurn[10]){
           openEleven();
         }else{
           closeEleven();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
-      if( b.getText().toLowerCase().equals("12") )
+      if( b.getText().toLowerCase().equals("twelve") )
       {
         if(closedThisTurn[11]){
-          openTwelwe();
+          openTwelve();
         }else{
-          closeTwelwe();
+          closeTwelve();
         }
-        empty.setText(Integer.toString(score));
+        if(score == 0){
+          empty.setIcon(pngZero);
+        }
+        if(score == 1){
+          empty.setIcon(pngOne);
+        }
+        if(score == 2){
+          empty.setIcon(pngTwo);
+        }
+        if(score == 3){
+          empty.setIcon(pngThree);
+        }
+        if(score == 4){
+          empty.setIcon(pngFour);
+        }
+        if(score == 5){
+          empty.setIcon(pngFive);
+        }
+        if(score == 6){
+          empty.setIcon(pngSix);
+        }
+        if(score == 7){
+          empty.setIcon(pngSeven);
+        }
+        if(score == 8){
+          empty.setIcon(pngEight);
+        }
+        if(score == 9){
+          empty.setIcon(pngNine);
+        }
+        if(score == 10){
+          empty.setIcon(pngTen);
+        }
+        if(score == 11){
+          empty.setIcon(pngEleven);
+        }
+        if(score == 12){
+          empty.setIcon(pngTwelve);
+        }
       }
 			if( b.getText().toLowerCase().equals("play") )
 			{
         if(score != 0){
           gameOver();
         }else{
+          if(closedThisTurn[0]){
+            labelOne.setText("Closed");
+          }
+          if(closedThisTurn[1]){
+            labelTwo.setText("Closed");
+          }
+          if(closedThisTurn[2]){
+            labelThree.setText("Closed");
+          }
+          if(closedThisTurn[3]){
+            labelFour.setText("Closed");
+          }
+          if(closedThisTurn[4]){
+            labelFive.setText("Closed");
+          }
+          if(closedThisTurn[5]){
+            labelSix.setText("Closed");
+          }
+          if(closedThisTurn[6]){
+            labelSeven.setText("Closed");
+          }
+          if(closedThisTurn[7]){
+            labelEight.setText("Closed");
+          }
+          if(closedThisTurn[8]){
+            labelNine.setText("Closed");
+          }
+          if(closedThisTurn[9]){
+            labelTen.setText("Closed");
+          }
+          if(closedThisTurn[10]){
+            labelEleven.setText("Closed");
+          }
+          if(closedThisTurn[11]){
+            labelTwelve.setText("Closed");
+          }
           one.setEnabled(!(closedThisTurn[0]));
           two.setEnabled(!(closedThisTurn[1]));
           three.setEnabled(!(closedThisTurn[2]));
@@ -821,13 +1320,82 @@ class close_the_board
           nine.setEnabled(!(closedThisTurn[8]));
           ten.setEnabled(!(closedThisTurn[9]));
           eleven.setEnabled(!(closedThisTurn[10]));
-          twelwe.setEnabled(!(closedThisTurn[11]));
+          twelve.setEnabled(!(closedThisTurn[11]));
           int dice1 = diceRoll();
           int dice2 = diceRoll();
-          labelDice1.setText(Integer.toString(dice1));
-          labelDice2.setText(Integer.toString(dice2));
+          if(dice1 == 1){
+            labelDice1.setIcon(new ImageIcon("images/dice_1.png"));
+          }
+          if(dice1 == 2){
+            labelDice1.setIcon(new ImageIcon("images/dice_2.png"));
+          }
+          if(dice1 == 3){
+            labelDice1.setIcon(new ImageIcon("images/dice_3.png"));
+          }
+          if(dice1 == 4){
+            labelDice1.setIcon(new ImageIcon("images/dice_4.png"));
+          }
+          if(dice1 == 5){
+            labelDice1.setIcon(new ImageIcon("images/dice_5.png"));
+          }
+          if(dice1 == 6){
+            labelDice1.setIcon(new ImageIcon("images/dice_6.png"));
+          }
+          if(dice2 == 1){
+            labelDice2.setIcon(new ImageIcon("images/dice_1.png"));
+          }
+          if(dice2 == 2){
+            labelDice2.setIcon(new ImageIcon("images/dice_2.png"));
+          }
+          if(dice2 == 3){
+            labelDice2.setIcon(new ImageIcon("images/dice_3.png"));
+          }
+          if(dice2 == 4){
+            labelDice2.setIcon(new ImageIcon("images/dice_4.png"));
+          }
+          if(dice2 == 5){
+            labelDice2.setIcon(new ImageIcon("images/dice_5.png"));
+          }
+          if(dice2 == 6){
+            labelDice2.setIcon(new ImageIcon("images/dice_6.png"));
+          }
           score = dice1 + dice2;
-          empty.setText(Integer.toString(score));
+          if(score == 1){
+            empty.setIcon(pngOne);
+          }
+          if(score == 2){
+            empty.setIcon(pngTwo);
+          }
+          if(score == 3){
+            empty.setIcon(pngThree);
+          }
+          if(score == 4){
+            empty.setIcon(pngFour);
+          }
+          if(score == 5){
+            empty.setIcon(pngFive);
+          }
+          if(score == 6){
+            empty.setIcon(pngSix);
+          }
+          if(score == 7){
+            empty.setIcon(pngSeven);
+          }
+          if(score == 8){
+            empty.setIcon(pngEight);
+          }
+          if(score == 9){
+            empty.setIcon(pngNine);
+          }
+          if(score == 10){
+            empty.setIcon(pngTen);
+          }
+          if(score == 11){
+            empty.setIcon(pngEleven);
+          }
+          if(score == 12){
+            empty.setIcon(pngTwelve);
+          }
         }
 			}
 		}
@@ -854,5 +1422,4 @@ class close_the_board
 			}
 		}
 	}
-	
 }
