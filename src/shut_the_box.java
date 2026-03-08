@@ -37,40 +37,41 @@ class shut_the_box
 	private static JLabel labelEleven;
 	private static JLabel labelTwelve;
 	private static JLabel empty;
-  private static JLabel gameScore;
+	private static JLabel gameScore;
 	private static JDialog popUpDialog;
 	private static int score;
 	private static JFrame f;
-  private static boolean[] closedThisTurn;
-  private static ImageIcon pngZero;
-  private static ImageIcon pngOne;
-  private static ImageIcon pngTwo;
-  private static ImageIcon pngThree;
-  private static ImageIcon pngFour;
-  private static ImageIcon pngFive;
-  private static ImageIcon pngSix;
-  private static ImageIcon pngSeven;
-  private static ImageIcon pngEight;
-  private static ImageIcon pngNine;
-  private static ImageIcon pngTen;
-  private static ImageIcon pngEleven;
-  private static ImageIcon pngTwelve;
+	private static boolean[] closedThisTurn;
+	private static ImageIcon pngZero;
+	private static ImageIcon pngOne;
+	private static ImageIcon pngTwo;
+	private static ImageIcon pngThree;
+	private static ImageIcon pngFour;
+	private static ImageIcon pngFive;
+	private static ImageIcon pngSix;
+	private static ImageIcon pngSeven;
+	private static ImageIcon pngEight;
+	private static ImageIcon pngNine;
+	private static ImageIcon pngTen;
+	private static ImageIcon pngEleven;
+	private static ImageIcon pngTwelve;
 	
 	public static void main(String[] args)
 	{
-    pngZero = new ImageIcon("../images/0.png");
-    pngOne = new ImageIcon("../images/1.png");
-    pngTwo = new ImageIcon("../images/2.png");
-    pngThree = new ImageIcon("../images/3.png");
-    pngFour = new ImageIcon("../images/4.png");
-    pngFive = new ImageIcon("../images/5.png");
-    pngSix = new ImageIcon("../images/6.png");
-    pngSeven = new ImageIcon("../images/7.png");
-    pngEight = new ImageIcon("../images/8.png");
-    pngNine = new ImageIcon("../images/9.png");
-    pngTen = new ImageIcon("../images/10.png");
-    pngEleven = new ImageIcon("../images/11.png");
-    pngTwelve = new ImageIcon("../images/12.png");
+	
+    pngZero = new ImageIcon("images/0.png");
+    pngOne = new ImageIcon("images/1.png");
+    pngTwo = new ImageIcon("images/2.png");
+    pngThree = new ImageIcon("images/3.png");
+    pngFour = new ImageIcon("images/4.png");
+    pngFive = new ImageIcon("images/5.png");
+    pngSix = new ImageIcon("images/6.png");
+    pngSeven = new ImageIcon("images/7.png");
+    pngEight = new ImageIcon("images/8.png");
+    pngNine = new ImageIcon("images/9.png");
+    pngTen = new ImageIcon("images/10.png");
+    pngEleven = new ImageIcon("images/11.png");
+    pngTwelve = new ImageIcon("images/12.png");
 
     closedThisTurn = new boolean[12];
 		for (int i = 0; i < 12; i++)
@@ -365,8 +366,8 @@ class shut_the_box
 		roll.addActionListener(rollAL);
 		roll.setEnabled(true);
 		
-		labelDice1 = new JLabel();
-		labelDice2 = new JLabel();
+		labelDice1 = new JLabel(new ImageIcon("../images/dice_6.png"));
+		labelDice2 = new JLabel(new ImageIcon("../images/dice_6.png"));
  		empty = new JLabel();
 		
 		panelConstraintsDice.gridx = 1;
@@ -667,8 +668,8 @@ class shut_the_box
 		labelTen.setText("Open");
 		labelEleven.setText("Open");
 		labelTwelve.setText("Open");
-		labelDice1.setIcon(new ImageIcon ("../images/dice_6.png"));
-		labelDice2.setIcon(new ImageIcon ("../images/dice_6.png"));
+		labelDice1.setIcon(new ImageIcon ("images/dice_6.png"));
+		labelDice2.setIcon(new ImageIcon ("images/dice_6.png"));
 		
 		one.setEnabled(false);	
 		two.setEnabled(false);	
@@ -1324,40 +1325,40 @@ class shut_the_box
           int dice1 = diceRoll();
           int dice2 = diceRoll();
           if(dice1 == 1){
-            labelDice1.setIcon(new ImageIcon("../images/dice_1.png"));
+            labelDice1.setIcon(new ImageIcon("images/dice_1.png"));
           }
           if(dice1 == 2){
-            labelDice1.setIcon(new ImageIcon("../images/dice_2.png"));
+            labelDice1.setIcon(new ImageIcon("images/dice_2.png"));
           }
           if(dice1 == 3){
-            labelDice1.setIcon(new ImageIcon("../images/dice_3.png"));
+            labelDice1.setIcon(new ImageIcon("images/dice_3.png"));
           }
           if(dice1 == 4){
-            labelDice1.setIcon(new ImageIcon("../images/dice_4.png"));
+            labelDice1.setIcon(new ImageIcon("images/dice_4.png"));
           }
           if(dice1 == 5){
-            labelDice1.setIcon(new ImageIcon("../images/dice_5.png"));
+            labelDice1.setIcon(new ImageIcon("images/dice_5.png"));
           }
           if(dice1 == 6){
-            labelDice1.setIcon(new ImageIcon("../images/dice_6.png"));
+            labelDice1.setIcon(new ImageIcon("images/dice_6.png"));
           }
           if(dice2 == 1){
-            labelDice2.setIcon(new ImageIcon("../images/dice_1.png"));
+            labelDice2.setIcon(new ImageIcon("images/dice_1.png"));
           }
           if(dice2 == 2){
-            labelDice2.setIcon(new ImageIcon("../images/dice_2.png"));
+            labelDice2.setIcon(new ImageIcon("images/dice_2.png"));
           }
           if(dice2 == 3){
-            labelDice2.setIcon(new ImageIcon("../images/dice_3.png"));
+            labelDice2.setIcon(new ImageIcon("images/dice_3.png"));
           }
           if(dice2 == 4){
-            labelDice2.setIcon(new ImageIcon("../images/dice_4.png"));
+            labelDice2.setIcon(new ImageIcon("images/dice_4.png"));
           }
           if(dice2 == 5){
-            labelDice2.setIcon(new ImageIcon("../images/dice_5.png"));
+            labelDice2.setIcon(new ImageIcon("images/dice_5.png"));
           }
           if(dice2 == 6){
-            labelDice2.setIcon(new ImageIcon("../images/dice_6.png"));
+            labelDice2.setIcon(new ImageIcon("images/dice_6.png"));
           }
           score = dice1 + dice2;
           if(score == 1){
